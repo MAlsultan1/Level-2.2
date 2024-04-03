@@ -11,8 +11,8 @@ import 'guess.dart';
 String? guess_word;
 void hangman(){
   Random random = new Random();
-  int randomNumber = random.nextInt(2);
   List<String> words = ["hangman","flutter"];
+  int randomNumber = random.nextInt(words.length+1);
   String guess_word = words[randomNumber];
   String answer = "_"*guess_word.length;
   String? guess;
@@ -39,7 +39,11 @@ void hangman(){
             print("The letter is already used!");
             continue;
           }
-          else if(guess!.length>1){
+          else if(guess!.contains("0")||guess.contains("1")||guess.contains("2")||guess.contains("3")||guess.contains("4")||guess.contains("5")||guess.contains("6")||guess.contains("7")||guess.contains("8")||guess.contains("9")){
+            print("Type a Letter not a NUMBER!");
+            continue;
+          }
+          else if(guess.length>1){
             print("Type only 1 letter!");
             continue;
           }
